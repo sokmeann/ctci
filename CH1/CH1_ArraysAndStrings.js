@@ -8,10 +8,12 @@
 
   function isUnique_Obj(str){
     let charCheck = {};
+    // Count by character
     str.split('').forEach(char => {
       if(charCheck.hasOwnProperty(char)) charCheck[char]++;
       else charCheck[char] = 1;
-    });
+    })
+    // Check if any character is not unique
     for(let key in charCheck){
       if(charCheck[key] > 1) return false;
     }
@@ -73,16 +75,18 @@
 
   /*
   * APPROACH:
-    * If true, the string will have a 0 or 1 char that is single, others are paired.
+    * If true, the string will have a 0 or 1 char that is single, others are in even number.
     * Space and case ignored.
   */
 
   function palindromePermutation(str){
     let charObj = {}, singleChar = false
+    // Count by character, excluding space
     str.toLowerCase().split('').forEach(char => {
       if(char !== ' ' && charObj.hasOwnProperty(char)) charObj[char]++
       else if(char !== ' ') charObj[char] = 1
     })
+    // Check that only a max of 1 char that is single, rest should be even
     for(let character in charObj){
       if(charObj[character] === 1){
         if(singleChar) return false
@@ -149,6 +153,7 @@
   function strCompression(str){
     let currentChar = undefined, counter = 0, result = ''
     str.split('').forEach(char => {
+      // If currentChar has been initialized, count chars
       if(currentChar !== undefined){
         if(currentChar === char) counter++
         else{
@@ -157,10 +162,12 @@
           counter = 1
         }
       }else{
+        // Initialize currentChar
         currentChar = char
         counter = 1
       }
     })
+    // add what's in memory for currentChar and counter, upon loop exit
     result += currentChar + counter
     return result.length < str.length ? result : str
   }
