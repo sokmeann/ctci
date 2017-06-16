@@ -1,0 +1,15 @@
+{
+  "name": "Cracking_The_Coding_Interview",
+  "version": "1.0.0",
+  "description": "Solutions to CTCI problems",
+  "main": "index.js",
+  "repository": "https://github.com/sokmeann/ctci.git",
+  "author": "Sokmean Nou <sokmean.nou@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "testem"
+  },
+  "dependencies": {
+    "testem": "^1.6.0"
+  }
+}
